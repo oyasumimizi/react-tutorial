@@ -10,6 +10,9 @@ class BookCreator extends Component{
             author= ""
     }
 
+this.handleChange = this.handleChange.bind(this);
+this.handleSubmit = this.handleSubmit.bind(this);
+
 handleChange(event){
     this.setState({
         [event.target.name]: event.target.value
@@ -18,13 +21,24 @@ handleChange(event){
 
 handleSubmit(event){
     event.preventDefault();
-    console.log(this.state.title);
-    console.log(this.state.author);
+    const book = {
+        title: this.state.title,
+        author: this.state.author
+    }
+    this.props.addNewBook(book);
+    this.setState({
+        title: ""
+        author: ""
+    });
 }
 
     render(){
         return(
             <div>
+                <hr/>
+                <center>
+                    <h3>Add a new book!</h3>
+                </center>
                <form onSubmit={this.handleSubmit}>
                    <div className="row col-allign">
                        <label>Title:</label>
