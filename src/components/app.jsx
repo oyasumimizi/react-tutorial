@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import TitleBar from "./TitleBar/titleBar";
 import BookViewer from "./BookViewer/bookViewer";
 import BookCreator from "./BookCreator/bookCreator";
-
+import Footer from "./Footer/footer";
 
 class App extends Component{
     constructor(props){
         super(props);
         this.books = [
-            {title: ”Ready Player One”, author: ”Ernest Cline”},
-            {title: ”All the Light We Cannot See”, author: ”Anthony Doerr”},
-            {title: ”The First and Last Freedom”, author: ”Jiddu Krishnamurti”},
+            {title: "Ready Player One”, author: "Ernest Cline"},
+            {title: "All the Light We Cannot See”, author: Anthony Doerr"},
+            {title: "The First and Last Freedom”, author: Jiddu Krishnamurti"},
         ];
         this.state = {
             bookNumber:0
@@ -51,7 +51,8 @@ class App extends Component{
                 <TitleBar />
                 <BookViewer book={this.books[this.state.bookNumber]} nextBook={() => this.goToNextBook()} previousBook={() => this.goToPreviousBook()}/>)
                 <BookCreator addNewBook={this.addNewBook.bind(this)}/>
-    </div>
+                <Footer />
+            </div>
 
         );
     }
